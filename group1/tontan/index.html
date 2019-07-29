@@ -24,37 +24,46 @@
     crossorigin="anonymous"
   ></script>
   <script src='./js/scrolls.js'></script>
+ <!-- <script src='./js/snow.js'></script>-->
 </head>
 <body>
     <div class="container">
-        <div class="card border-0 shadow my-5">
-            <div class="card-body p-5">
+        <div class="card border-0 shadow">
+            <div class="card-body">
             <div class="fb-profile">
                 <img align="left" class="fb-image-lg" src="img/13.jpg" alt="รูปสมัยมัธยม"/>
                 <img align="left" class="fb-image-profile rounded-circle thumbnail" src="img/profile.jpg" alt="รูปโปรไฟล์สมัยปี 2"/>
                 <div class="fb-profile-text">
-                    <h1>วรรณพงษ์ ภัททิยไพบูลย์</h1>
+                    <h1 class="h">วรรณพงษ์ ภัททิยไพบูลย์</h1>
                     <p>นักศึกษา CIS ชั้นปีที่ 3</p>
                 </div>
-            </div><br>
-            <h4>
-            <ul class="nav justify-content-center">
-              <li class="nav-item"><a class="nav-link" href="#1">ข้อมูลเบื้องต้น</a></li>
-              <li class="nav-item"><a class="nav-link" href="#2">ผลงาน</a></li>
-              <li class="nav-item"><a class="nav-link" href="#3">ติดต่อ</a></li>
-            </ul></h4>
-        </div>
-    </div>
-  <div class="container">
-    <div class="card border-0 shadow my-5">
-      <div class="card-body p-5">
+            </div>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">PROFILE</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                      <li class="nav-item"><a class="nav-link" href="#1">ข้อมูลเบื้องต้น</a></li>
+                      <li class="nav-item"><a class="nav-link" href="#2">ผลงาน</a></li>
+                      <li class="nav-item"><a class="nav-link" href="#3">ติดต่อ</a></li>
+                  </ul>
+                </div>
+    </nav>
+  
+
+      <div class="card-body">
         <h1 class="font-weight-light" id="1">ข้อมูลเบื้องต้น</h1>
+        <div class="row">
+          <div class="col-8 p-3">
         <p class="lead">
           ชื่อ : นาย วรรณพงษ์ ภัททิยไพบูลย์</br>
           รหัส : 603410214-3<br />
           ชั้นปีที่ 3<br />
           สาขาวิทยาการคอมพิวเตอร์และสารสนเทศ<br />
-          คณะวิทยาศาสตร์ประยุกต์และวิศวกรรมศาสตร์<br />
+          <img width="32" src="https://upload.wikimedia.org/wikipedia/th/8/80/Logo-ASE_KKU.png"> คณะวิทยาศาสตร์ประยุกต์และวิศวกรรมศาสตร์<br />
           มหาวิทยาลัยขอนแก่น วิทยาเขตหนองคาย<br />
           <iframe
             src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ftontanblog&tabs&width=340&height=130&small_header=false&adapt_container_width=false&hide_cover=false&show_facepile=false"
@@ -66,11 +75,13 @@
             allowTransparency="true"
             allow="encrypted-media"
           ></iframe>
-        </p>
+        </p></div>
+        <div class="col-4"><img class="img-thumbnail" src="https://avatars0.githubusercontent.com/u/8536487?s=300" alt="วรรณพงษ์ ภัททิยไพบูลย์"></div>
+        </div>
       </div>
-    </div>
-    <div class="card border-0 shadow my-5">
-      <div class="card-body p-5">
+      <hr>
+
+      <div class="card-body">
         <h1 class="font-weight-light" id="2">ผลงาน</h1>
         <h2>วิดีโอ</h2>
         <div class="embed-responsive embed-responsive-16by9">
@@ -83,9 +94,8 @@
         </div>
         <p>รายละเอียดเพิ่มเติม <a href="https://iam.wannaphong.com">iam.wannaphong.com</a></p>
       </div>
-    </div>
-    <div class="card border-0 shadow my-5">
-        <div class="card-body p-5">
+<hr>
+        <div class="card-body">
           <h1 class="font-weight-light" id="3">ติดต่อ</h1>
           <p class="lead">
               อีเมล :
@@ -95,7 +105,9 @@
           </p>
         </div>
        
-      </div>
+      </div></div>
+     <!--<div class="card border-0 shadow">วรรณพงษ์ ภัททิยไพบูลย์</div>-->
+      <br>
   </div>
   <script type="text/javascript">
 	scroller.init();
