@@ -1,0 +1,50 @@
+body {
+  height: 100%;
+  background-color: lightskyblue;
+  background: url("https://source.unsplash.com/twukN12EN7c/1920x1080") no-repeat
+    center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+#left {
+  background-color: aqua;
+}
+#show {
+  height: 100%;
+  background-color: aqua;
+  max-height: 100%;
+}
+
+.carousel {
+  width: 620px;
+  height: 100%;
+
+  align-items: center;
+}
+
+.fb-profile img.fb-image-lg {
+  z-index: 0;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.fb-image-profile {
+  margin: -90px 10px 0px 50px;
+  z-index: 9;
+  width: 20%;
+}
+
+@media (max-width: 768px) {
+  .fb-profile-text > h1 {
+    font-weight: 700;
+    font-size: 16px;
+  }
+
+  .fb-image-profile {
+    margin: -45px 10px 0px 25px;
+    z-index: 9;
+    width: 20%;
+  }
+}
