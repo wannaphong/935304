@@ -1,5 +1,6 @@
 <html>
   <head>
+    <meta charset="utf-8" />
     <script>
       //command
       console.log("Hello JS");
@@ -10,15 +11,32 @@
   <body>
     <h1>JS Lab</h1>
     <p id="b"></p>
+    <p id="c"></p>
     <img id="img1" />
+    <button type="button" onclick="f(5,5)">คลิกสิ</button>
     <script>
       var a = 10,
         b = "20";
-      function f(x, y) {
-        return x + y;
+      var aa = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+      var output = "";
+      var arrayObj = { one: "tontan", n: "1" };
+      for (i = 0; i < aa.length; i++) {
+        output += aa[i] + "<br>";
       }
-      window.alert(f(2, 3));
-      document.write("<h2>Hiii</h2>" + (a + Number(b)));
+
+      function f(x, y) {
+        //return x + y;
+        window.alert(x + y);
+      }
+      //window.alert(f(2, 3));
+      document.write(
+        "<h2>Hiii</h2>" +
+          (a + Number(b)) +
+          "<br>" +
+          arrayObj.one +
+          "<br>"
+      );
+      document.getElementById("c").innerHTML = output;
       document.getElementById("b").innerHTML = "CIS";
       document.getElementById("img1").src =
         "https://avatars0.githubusercontent.com/u/8536487?s=460&v=4";

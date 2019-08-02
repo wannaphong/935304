@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>JS lab 2</title>
+  </head>
+  <body>
+    <input type="number" id="num1" />+
+    <input type="number" id="num2" />
+    <button onclick="plus()">=</button>
+    <input type="number" id="sum" readonly />
+    <script>
+      function plus() {
+        var n1 = Number(document.getElementById("num1").value);
+        var n2 = Number(document.getElementById("num2").value);
+        document.getElementById("sum").value = n1 + n2;
+      }
+    </script>
+  </body>
+</html>
