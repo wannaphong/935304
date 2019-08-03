@@ -538,7 +538,10 @@
         
         </div>
           </div>
-        <button type="button" class="btn btn-success"  data-toggle="modal" data-target="#myModal" onclick="cal()">คำนวณ</button>
+          <div style="text-align:center;">
+        <button type="button" class="btn btn-success btn-lg"  data-toggle="modal" data-target="#myModal" onclick="cal()">คำนวณ</button>
+        <button type="button" class="btn btn-danger btn-lg" onclick="if(confirm('แน่ใจว่าจะล้างข้อมูลทั้งหมด ?')){$('select').prop('selectedIndex', 0);}">ล้าง</button>
+      </div>
         <div class="modal" id="myModal">
                 <div class="modal-dialog">
                   <div class="modal-content">
