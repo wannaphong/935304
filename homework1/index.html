@@ -32,16 +32,21 @@
             function get_need_grade(id,credit){ // รหัสวิชา, หน่วยกิต
                 return '<select class="subject form-control" name="'+String(id)+'" credit="'+String(credit)+'"><option value="" selected disabled hidden>-</option><option value="4">A</option><option value="3.5">B+</option><option value="3">B</option><option value="2.5">C+</option><option value="2">C</option><option value="1.5">D+</option><option value="1">D</option><option value="0">F</option></select>'
             }
-            function add_subject(id,name,credit){ // รหัสวิชา, ชื่อวิชา, หน่วยกิต
+            function add_subject(id,name,credit,return_on=false){ // รหัสวิชา, ชื่อวิชา, หน่วยกิต
                 var html_sub="<tr><td>"+String(id)+"</td><td>"+String(name)+"</td><td>"+String(credit)+"</td><td>";
-                if(credit=="0"){
-                    html_sub += "<select><option>ผ่าน</option><option>ไม่ผ่าน</option></select>";
+                if(credit=="0"){ // กรณีเป็นวิชาที่ไม่ต้องการเกรด
+                    html_sub += "<select class='subject_not_grade'><option value='1'>ผ่าน</option><option value='2'>ไม่ผ่าน</option></select>";
                 }
-                else{
+                else{ // วิชาที่ต้องการเกรด
                     html_sub += get_need_grade(id,credit);
                 }
                 html_sub += "</td></tr>";
-                document.write(html_sub);
+                if(return_on){
+                    return html_sub;
+                }
+                else{
+                    document.write(html_sub);
+                }
             }
             function cal(){ // คำนวณเกรด
                 var elements = document.getElementsByClassName("subject");
@@ -59,6 +64,21 @@
                 if(grade=="NaN") grade="กรุณากรอกเกรด";
                 window.alert(grade);
             }
+            function add(name_t,p){
+                var code = document.getElementById(p+"1").value;
+                var subject = document.getElementById(p+"2").value;
+                var credit = document.getElementById(p+"3").value;
+                var html = add_subject(code,subject,credit,true);
+                document.getElementById(name_t).innerHTML += html;
+            }
+            // TODO
+            // ลบรายวิชา
+            // ปริ้นรายงาน pdf
+            // ไว้ทำเป็นโปรเจคแล้วกัน :D
+            // เอาแค่นี้ก่อนแล้วกัน ตอนนี้ ขก.
+            // >=<
+            // ขอให้ทุกคนที่เห็นโค้ดนี้มีความสุข
+            // แมว
     </script>
 </head>
 <body>
@@ -380,37 +400,6 @@
                     </div>
                 
         </div>
-        <div class="card">
-                <div class="card-header" id="heading8">
-                  <h5 class="mb-0">
-                    <button class="btn btn-link" data-toggle="collapse" data-target="#term8" aria-expanded="true" aria-controls="term8">
-                      ปี 4 เทอม 2
-                    </button>
-                  </h5>
-                </div>
-            
-                <div id="term8" class="collapse" aria-labelledby="heading8" data-parent="#accordion">
-                  <div class="card-body">
-                          <table class="table table-striped">
-                                  <thead>
-                                      <tr>
-                                          <th>รหัสวิชา</th>
-                                          <th>วิชา</th><th>หน่วยกิต</th>
-                                          <th>เกรด</th>
-                                      </tr>
-                                  </thead>
-                                  <tbody>
-                                      <script>
-                                           // ปี 4 เทอม 2
-                                            add_subject("935499","COMPUTER AND INFORMATION SCIENCE PROJECT II (PROJECT)",3);
-                                            add_subject("935495","Cooperative Eduction in Computer and Information Science (Cooperative Eduction)",6);
-                                      </script>
-                                  </tbody>
-                          </table>
-                      </div>
-                </div>
-            
-    </div>
     <div class="card">
                     <div class="card-header" id="heading9">
                       <h5 class="mb-0">
@@ -430,7 +419,21 @@
                                               <th>เกรด</th>
                                           </tr>
                                       </thead>
-                                      <tbody>
+                                      <tbody id="t1">
+                                          <tr>
+                                              <td>
+                                                  <input id="n1" type="number"  placeholder="รหัส">
+                                              </td>
+                                              <td>
+                                                  <input id="n2" type="text"  placeholder="วิชา">
+                                              </td>
+                                              <td>
+                                                  <input id="n3" type="number"  placeholder="หน่วยกิต">
+                                              </td>
+                                              <td>
+                                                  <button onclick='add("t1","n")' class="btn btn-success">สร้าง</button>
+                                              </td>
+                                          </tr>
                                           <script>
                                                
                                           </script>
@@ -459,11 +462,25 @@
                                           <th>เกรด</th>
                                       </tr>
                                   </thead>
-                                  <tbody>
-                                      <script>
-                                           
-                                      </script>
-                                  </tbody>
+                                  <tbody id="t2">
+                                        <tr>
+                                            <td>
+                                                <input id="c1" type="number"  placeholder="รหัส">
+                                            </td>
+                                            <td>
+                                                <input id="c2" type="text"  placeholder="วิชา">
+                                            </td>
+                                            <td>
+                                                <input id="c3" type="number"  placeholder="หน่วยกิต">
+                                            </td>
+                                            <td>
+                                                <button onclick='add("t2","c")' class="btn btn-success">สร้าง</button>
+                                            </td>
+                                        </tr>
+                                        <script>
+                                             
+                                        </script>
+                                    </tbody>
                           </table>
                       </div>
                 </div>
@@ -498,7 +515,7 @@
                   </div>
             </div>
         
-</div>
+        </div>
           </div>
         <button type="button" class="btn btn-success" onclick="cal()">คำนวณ</button>
     </div>
