@@ -35,7 +35,7 @@
             function add_subject(id,name,credit,return_on=false){ // รหัสวิชา, ชื่อวิชา, หน่วยกิต
                 var html_sub="<tr><td>"+String(id)+"</td><td>"+String(name)+"</td><td>"+String(credit)+"</td><td>";
                 if(credit=="0"){ // กรณีเป็นวิชาที่ไม่ต้องการเกรด
-                    html_sub += "<select class='subject_not_grade'><option value='1'>ผ่าน</option><option value='2'>ไม่ผ่าน</option></select>";
+                    html_sub += "<select class='subject form-control' name='"+String(id)+"' credit='"+String(credit)+"'><option value='' selected disabled hidden>-</option><option value='1'>ผ่าน</option><option value='2'>ไม่ผ่าน</option></select>";
                 }
                 else{ // วิชาที่ต้องการเกรด
                     html_sub += get_need_grade(id,credit);
@@ -52,17 +52,37 @@
                 var elements = document.getElementsByClassName("subject");
                 var grade = 0.0;
                 var credit = 0.0;
+                var not_grade = "";
                 console.log("len :"+elements.length);
                 for(var i=0; i<elements.length; i++) {
                     console.log(elements[i].getAttribute("credit")+" "+elements[i].value);
-                    if(elements[i].value != ""){
+                    if(elements[i].value != "" && elements[i].getAttribute("credit")!="0"){
                         grade += (Number(elements[i].getAttribute("credit"))*Number(elements[i].value));
                         credit += Number(elements[i].getAttribute("credit"));
+                    }
+                    else{
+                        if(elements[i].value != "" && elements[i].getAttribute("credit")=="0"){
+                            if(elements[i].value=="1"){
+                                if(not_grade!="ไม่ผ่าน"){
+                                    not_grade="ผ่าน";
+                                }
+                            }
+                            else{
+                                not_grade = "ไม่ผ่าน"
+                            }
+                        }
                     }
                 }
                 grade = (grade/credit).toPrecision(3);
                 if(grade=="NaN") grade="กรุณากรอกเกรด";
-                window.alert(grade);
+                if(grade!="NaN"&&not_grade!=""){
+                    document.getElementById("gpa").innerHTML = "GPA : "+String(grade)+"<br>วิชาไม่มีหน่วยกิต : "+not_grade;
+                    document.getElementById("gpa2").innerHTML = "GPA : "+String(grade)+"<br>วิชาไม่มีหน่วยกิต : "+not_grade;
+                }
+                else{
+                    document.getElementById("gpa").innerHTML = "GPA : "+String(grade);
+                    document.getElementById("gpa2").innerHTML = "GPA : "+String(grade);
+                }
             }
             function add(name_t,p){
                 var code = document.getElementById(p+"1").value;
@@ -84,9 +104,10 @@
 <body>
     <div class="container">
             <div class="card border-0 shadow">
+                    <div style="background-color: green;"><img src="./img/logo_en-EN.png" class="img-fluid"></div>
                 <div class="card-body">
-                    <h1>Total GPA Calculator<br>Computer and Information Science</h1>
-                    
+                    <h1>GPA Calculator<br>Computer and Information Science</h1><hr>
+                    <h3 id="gpa">GPA : 0.0</h3>
     <div id="accordion">
             <div class="card">
               <div class="card-header" id="headingOne">
@@ -422,13 +443,13 @@
                                       <tbody id="t1">
                                           <tr>
                                               <td>
-                                                  <input id="n1" type="number"  placeholder="รหัส">
+                                                  <input id="n1" class="form-control" type="number"  placeholder="รหัส">
                                               </td>
                                               <td>
-                                                  <input id="n2" type="text"  placeholder="วิชา">
+                                                  <input id="n2" class="form-control" type="text"  placeholder="วิชา">
                                               </td>
                                               <td>
-                                                  <input id="n3" type="number"  placeholder="หน่วยกิต">
+                                                  <input id="n3" class="form-control" type="number"  placeholder="หน่วยกิต">
                                               </td>
                                               <td>
                                                   <button onclick='add("t1","n")' class="btn btn-success">สร้าง</button>
@@ -465,13 +486,13 @@
                                   <tbody id="t2">
                                         <tr>
                                             <td>
-                                                <input id="c1" type="number"  placeholder="รหัส">
+                                                <input id="c1" class="form-control" type="number"  placeholder="รหัส">
                                             </td>
                                             <td>
-                                                <input id="c2" type="text"  placeholder="วิชา">
+                                                <input id="c2" class="form-control" type="text"  placeholder="วิชา">
                                             </td>
                                             <td>
-                                                <input id="c3" type="number"  placeholder="หน่วยกิต">
+                                                <input id="c3" class="form-control" type="number"  placeholder="หน่วยกิต">
                                             </td>
                                             <td>
                                                 <button onclick='add("t2","c")' class="btn btn-success">สร้าง</button>
@@ -490,7 +511,7 @@
             <div class="card-header" id="heading11">
               <h5 class="mb-0">
                 <button class="btn btn-link" data-toggle="collapse" data-target="#term11" aria-expanded="true" aria-controls="term11">
-                  วิชาไม่มีเกรด
+                  วิชาไม่มีหน่วยกิต
                 </button>
               </h5>
             </div>
@@ -502,7 +523,7 @@
                                   <tr>
                                       <th>รหัสวิชา</th>
                                       <th>วิชา</th><th>หน่วยกิต</th>
-                                      <th>เกรด</th>
+                                      <th>ผล</th>
                                   </tr>
                               </thead>
                               <tbody>
@@ -517,8 +538,33 @@
         
         </div>
           </div>
-        <button type="button" class="btn btn-success" onclick="cal()">คำนวณ</button>
+        <button type="button" class="btn btn-success"  data-toggle="modal" data-target="#myModal" onclick="cal()">คำนวณ</button>
+        <div class="modal" id="myModal">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+              
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                      <h4 class="modal-title">สรุป</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+              
+                    <!-- Modal body -->
+                    <div class="modal-body" id="gpa2">
+                      
+                    </div>
+              
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+              
+                  </div>
+                </div>
+              </div>
+              <br>
     </div>
+    <div style="background-color: black;color: white;text-align: center;"><br><h4>นาย วรรณพงษ์ ภัททิยไพบูลย์ 603410214-3</h4><br></div>
     </div>
     </div>
     <script type="text/javascript">
