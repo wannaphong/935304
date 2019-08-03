@@ -33,7 +33,7 @@
                 return '<select class="subject form-control" name="'+String(id)+'" credit="'+String(credit)+'"><option value="" selected disabled hidden>-</option><option value="4">A</option><option value="3.5">B+</option><option value="3">B</option><option value="2.5">C+</option><option value="2">C</option><option value="1.5">D+</option><option value="1">D</option><option value="0">F</option></select>'
             }
             function add_subject(id,name,credit){ // รหัสวิชา, ชื่อวิชา, หน่วยกิต
-                var html_sub="<tr><td>"+String(id)+"</td><td>"+String(name)+"</td><td>";
+                var html_sub="<tr><td>"+String(id)+"</td><td>"+String(name)+"</td><td>"+String(credit)+"</td><td>";
                 if(credit=="0"){
                     html_sub += "<select><option>ผ่าน</option><option>ไม่ผ่าน</option></select>";
                 }
@@ -66,33 +66,440 @@
             <div class="card border-0 shadow">
                 <div class="card-body">
                     <h1>Total GPA Calculator<br>Computer and Information Science</h1>
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>รหัสวิชา</th>
-                                <th>วิชา</th>
-                                <th>เกรด</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-        <script>
-            // ปี 1 เทอม 1
-            add_subject("000101","ENGLISH I",3);
-            add_subject("000174","Learning Skills",3);
-            add_subject("935101","INTRODUCTION TO COMPUTER AND INFORMATION SCIENCE",3);
-            add_subject("935102","INTRODUCTION TO COMPUTER PROGRAMMING",3);
-            add_subject("935103","DISCRETE MATHEMATICS AND APPLICATIONS",3);
-            add_subject("935104","ETHICS AND PROFESSIONAL ISSUES IN COMPUTER AND INFORMATION SCIENCE",3);
-            // ปี 1 เทอม 2
-            add_subject("000102","ENGLISH II",3);
-            add_subject("000147","SCIENCE OF HAPPINESS",3);
-            add_subject("935105","CALCULUS FOR COMPUTER AND INFORMATION SCIENCE",3);
-            add_subject("935106","OBJECT-ORIENTED PROGRAMMING",3);
-            add_subject("935107","PRINCIPLES OF INFORMATION SYSTEM",3);
-            add_subject("935108","DATA STRUCTURES AND ALGORITHMS",3);
-        </script>
-        </tbody>
-    </table>
+                    
+    <div id="accordion">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                  <button class="btn btn-link" data-toggle="collapse" data-target="#term1" aria-expanded="true" aria-controls="term1">
+                    ปี 1 เทอม 1
+                  </button>
+                </h5>
+              </div>
+          
+              <div id="term1" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+                        <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>รหัสวิชา</th>
+                                        <th>วิชา</th><th>หน่วยกิต</th>
+                                        <th>เกรด</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <script>
+                                        // ปี 1 เทอม 1
+                                        add_subject("000101","ENGLISH I",3);
+                                        add_subject("000174","Learning Skills",3);
+                                        add_subject("935101","INTRODUCTION TO COMPUTER AND INFORMATION SCIENCE",3);
+                                        add_subject("935102","INTRODUCTION TO COMPUTER PROGRAMMING",3);
+                                        add_subject("935103","DISCRETE MATHEMATICS AND APPLICATIONS",3);
+                                        add_subject("935104","ETHICS AND PROFESSIONAL ISSUES IN COMPUTER AND INFORMATION SCIENCE",3);
+                                    </script>
+                                </tbody>
+                        </table>
+                    </div>
+              </div>
+            </div>
+            <div class="card">
+                    <div class="card-header" id="heading2">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse" data-target="#term2" aria-expanded="true" aria-controls="term2">
+                          ปี 1 เทอม 2
+                        </button>
+                      </h5>
+                    </div>
+                
+                    <div id="term2" class="collapse" aria-labelledby="heading2" data-parent="#accordion">
+                      <div class="card-body">
+                              <table class="table table-striped">
+                                      <thead>
+                                          <tr>
+                                              <th>รหัสวิชา</th>
+                                              <th>วิชา</th><th>หน่วยกิต</th>
+                                              <th>เกรด</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                          <script>
+                                               // ปี 1 เทอม 2
+                                                add_subject("000102","ENGLISH II",3);
+                                                add_subject("000147","SCIENCE OF HAPPINESS",3);
+                                                add_subject("935105","CALCULUS FOR COMPUTER AND INFORMATION SCIENCE",3);
+                                                add_subject("935106","OBJECT-ORIENTED PROGRAMMING",3);
+                                                add_subject("935107","PRINCIPLES OF INFORMATION SYSTEM",3);
+                                                add_subject("935108","DATA STRUCTURES AND ALGORITHMS",3)
+                                          </script>
+                                      </tbody>
+                              </table>
+                          </div>
+                    </div>
+            </div>
+            <div class="card">
+                        <div class="card-header" id="heading3">
+                          <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#term3" aria-expanded="true" aria-controls="term3">
+                              ปี 2 เทอม 1
+                            </button>
+                          </h5>
+                        </div>
+                    
+                        <div id="term3" class="collapse" aria-labelledby="heading3" data-parent="#accordion">
+                          <div class="card-body">
+                                  <table class="table table-striped">
+                                          <thead>
+                                              <tr>
+                                                  <th>รหัสวิชา</th>
+                                                  <th>วิชา</th><th>หน่วยกิต</th>
+                                                  <th>เกรด</th>
+                                              </tr>
+                                          </thead>
+                                          <tbody>
+                                              <script>
+                                                   // ปี 2 เทอม 1
+                                                    add_subject("000103","ENGLISH III",3);
+                                                    add_subject("000175","CREATIVE THINKING AND PROBLEM SOLVING",3);
+                                                    add_subject("935201","NUMERICAL METHODS FOR COMPUTER AND INFORMATION SCIENCE",3);
+                                                    add_subject("935202","DATABASE MANAGEMENT SYSTEM AND DESIGN",3);
+                                                    add_subject("935203","OPERATING SYSTEM",3);
+                                                    add_subject("935204","COMPUTER ARCHITECTURE AND ORGANIZATION",3)
+                                              </script>
+                                          </tbody>
+                                  </table>
+                              </div>
+                        </div>
+                        <div id="term3" class="collapse" aria-labelledby="heading3" data-parent="#accordion">
+                          <div class="card-body">
+                                  <table class="table table-striped">
+                                          <thead>
+                                              <tr>
+                                                  <th>รหัสวิชา</th>
+                                                  <th>วิชา</th><th>หน่วยกิต</th>
+                                                  <th>เกรด</th>
+                                              </tr>
+                                          </thead>
+                                          <tbody>
+                                              <script>
+                                                   // ปี 2 เทอม 1
+                                                    add_subject("000103","ENGLISH III",3);
+                                                    add_subject("000175","CREATIVE THINKING AND PROBLEM SOLVING",3);
+                                                    add_subject("935201","NUMERICAL METHODS FOR COMPUTER AND INFORMATION SCIENCE",3);
+                                                    add_subject("935202","DATABASE MANAGEMENT SYSTEM AND DESIGN",3);
+                                                    add_subject("935203","OPERATING SYSTEM",3);
+                                                    add_subject("935204","COMPUTER ARCHITECTURE AND ORGANIZATION",3)
+                                              </script>
+                                          </tbody>
+                                  </table>
+                              </div>
+                        </div>
+            </div>
+            <div class="card">
+                        <div class="card-header" id="heading4">
+                          <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#term4" aria-expanded="true" aria-controls="term4">
+                              ปี 2 เทอม 2
+                            </button>
+                          </h5>
+                        </div>
+                    
+                        <div id="term4" class="collapse" aria-labelledby="heading4" data-parent="#accordion">
+                          <div class="card-body">
+                                  <table class="table table-striped">
+                                          <thead>
+                                              <tr>
+                                                  <th>รหัสวิชา</th>
+                                                  <th>วิชา</th><th>หน่วยกิต</th>
+                                                  <th>เกรด</th>
+                                              </tr>
+                                          </thead>
+                                          <tbody>
+                                              <script>
+                                                   // ปี 2 เทอม 2
+                                                    add_subject("000103","ENGLISH III",3);
+                                                    add_subject("000175","CREATIVE THINKING AND PROBLEM SOLVING",3);
+                                                    add_subject("935201","NUMERICAL METHODS FOR COMPUTER AND INFORMATION SCIENCE",3);
+                                                    add_subject("935202","DATABASE MANAGEMENT SYSTEM AND DESIGN",3);
+                                                    add_subject("935203","OPERATING SYSTEM",3);
+                                                    add_subject("935204","COMPUTER ARCHITECTURE AND ORGANIZATION",3)
+                                              </script>
+                                          </tbody>
+                                  </table>
+                              </div>
+                        </div>
+                        <div id="term3" class="collapse" aria-labelledby="heading3" data-parent="#accordion">
+                          <div class="card-body">
+                                  <table class="table table-striped">
+                                          <thead>
+                                              <tr>
+                                                  <th>รหัสวิชา</th>
+                                                  <th>วิชา</th><th>หน่วยกิต</th>
+                                                  <th>เกรด</th>
+                                              </tr>
+                                          </thead>
+                                          <tbody>
+                                              <script>
+                                                   // ปี 2 เทอม 2
+                                                    add_subject("000104","ENGLISH IV",3);
+                                                    add_subject("000176","CREATIVE ENTREPRENEURS",3);
+                                                    add_subject("935205","INFORMATION SYSTEM ANALYSIS AND DESIGN",3);
+                                                    add_subject("935206","PROBABILITY AND STATISTICS FOR COMPUTER AND INFORMATION SCIENCE",3);
+                                                    add_subject("935207","COMPUTER NETWORK AND DATA COMMUNICATION",3);
+                                                    add_subject("935208","DATABASE APPLICATION PROGRAMMING",3)
+                                              </script>
+                                          </tbody>
+                                  </table>
+                              </div>
+                        </div>
+            </div>
+            <div class="card">
+                        <div class="card-header" id="heading5">
+                          <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#term5" aria-expanded="true" aria-controls="term5">
+                              ปี 3 เทอม 1
+                            </button>
+                          </h5>
+                        </div>
+                    
+                        <div id="term5" class="collapse" aria-labelledby="heading5" data-parent="#accordion">
+                          <div class="card-body">
+                                  <table class="table table-striped">
+                                          <thead>
+                                              <tr>
+                                                  <th>รหัสวิชา</th>
+                                                  <th>วิชา</th><th>หน่วยกิต</th>
+                                                  <th>เกรด</th>
+                                              </tr>
+                                          </thead>
+                                          <tbody>
+                                              <script>
+                                                   // ปี 3 เทอม 1
+                                                    add_subject("000158","COMMUNITY WAYS OF LIFE AND COMMUNITY LEARNING",3);
+                                                    add_subject("935301","ACADEMIC ENGLISH FOR COMPUTER AND INFORMATION SCIENCE",3);
+                                                    add_subject("935302","COMPUTATIONAL SCIENCE",3);
+                                                    add_subject("935303","DATABASE MANAGEMENT SYSTEM AND DESIGN",3);
+                                                    add_subject("935304","OPERATING SYSTEM",3);
+                                                    add_subject("935305","HUMAM-COMPUTER INTERACTION",3)
+                                              </script>
+                                          </tbody>
+                                  </table>
+                              </div>
+                        </div>
+            </div>
+            <div class="card">
+                        <div class="card-header" id="heading6">
+                          <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#term6" aria-expanded="true" aria-controls="term6">
+                              ปี 3 เทอม 2
+                            </button>
+                          </h5>
+                        </div>
+                    
+                        <div id="term6" class="collapse" aria-labelledby="heading6" data-parent="#accordion">
+                          <div class="card-body">
+                                  <table class="table table-striped">
+                                          <thead>
+                                              <tr>
+                                                  <th>รหัสวิชา</th>
+                                                  <th>วิชา</th><th>หน่วยกิต</th>
+                                                  <th>เกรด</th>
+                                              </tr>
+                                          </thead>
+                                          <tbody>
+                                              <script>
+                                                   // ปี 2 เทอม 2
+                                                    add_subject("000145","LEADERSHIP AND MANAGEMENT",3);
+                                                    add_subject("935306","INTELLIGENT SYSTEM",3);
+                                                    add_subject("935307","COMPUTER GRAPHICS AND VISUAL COMPUTING",3);
+                                                    add_subject("935308","INFORMATION STORAGE AND RETRIEVAL",3);
+                                                    add_subject("935309","MOBILE APPLICATION DEVELOPMENT",3);
+                                              </script>
+                                          </tbody>
+                                  </table>
+                              </div>
+                        </div>
+                    
+            </div>
+            <div class="card">
+                    <div class="card-header" id="heading7">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse" data-target="#term7" aria-expanded="true" aria-controls="term7">
+                          ปี 4 เทอม 1
+                        </button>
+                      </h5>
+                    </div>
+                
+                    <div id="term7" class="collapse" aria-labelledby="heading7" data-parent="#accordion">
+                      <div class="card-body">
+                              <table class="table table-striped">
+                                      <thead>
+                                          <tr>
+                                              <th>รหัสวิชา</th>
+                                              <th>วิชา</th><th>หน่วยกิต</th>
+                                              <th>เกรด</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                          <script>
+                                               // ปี 4 เทอม 1
+                                                add_subject("935498","COMPUTER AND INFORMATION SCIENCE PROJECT I (PROJECT)",3);
+                                          </script>
+                                      </tbody>
+                              </table>
+                          </div>
+                    </div>
+        </div>
+        <div class="card">
+                    <div class="card-header" id="heading8">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse" data-target="#term8" aria-expanded="true" aria-controls="term8">
+                          ปี 4 เทอม 2
+                        </button>
+                      </h5>
+                    </div>
+                
+                    <div id="term8" class="collapse" aria-labelledby="heading8" data-parent="#accordion">
+                      <div class="card-body">
+                              <table class="table table-striped">
+                                      <thead>
+                                          <tr>
+                                              <th>รหัสวิชา</th>
+                                              <th>วิชา</th><th>หน่วยกิต</th>
+                                              <th>เกรด</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                          <script>
+                                               // ปี 4 เทอม 2
+                                                add_subject("935499","COMPUTER AND INFORMATION SCIENCE PROJECT II (PROJECT)",3);
+                                                add_subject("935495","Cooperative Eduction in Computer and Information Science (Cooperative Eduction)",6);
+                                          </script>
+                                      </tbody>
+                              </table>
+                          </div>
+                    </div>
+                
+        </div>
+        <div class="card">
+                <div class="card-header" id="heading8">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#term8" aria-expanded="true" aria-controls="term8">
+                      ปี 4 เทอม 2
+                    </button>
+                  </h5>
+                </div>
+            
+                <div id="term8" class="collapse" aria-labelledby="heading8" data-parent="#accordion">
+                  <div class="card-body">
+                          <table class="table table-striped">
+                                  <thead>
+                                      <tr>
+                                          <th>รหัสวิชา</th>
+                                          <th>วิชา</th><th>หน่วยกิต</th>
+                                          <th>เกรด</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <script>
+                                           // ปี 4 เทอม 2
+                                            add_subject("935499","COMPUTER AND INFORMATION SCIENCE PROJECT II (PROJECT)",3);
+                                            add_subject("935495","Cooperative Eduction in Computer and Information Science (Cooperative Eduction)",6);
+                                      </script>
+                                  </tbody>
+                          </table>
+                      </div>
+                </div>
+            
+    </div>
+    <div class="card">
+                    <div class="card-header" id="heading9">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse" data-target="#term9" aria-expanded="true" aria-controls="term9">
+                          วิชาเลือก
+                        </button>
+                      </h5>
+                    </div>
+                
+                    <div id="term9" class="collapse" aria-labelledby="heading9" data-parent="#accordion">
+                      <div class="card-body">
+                              <table class="table table-striped">
+                                      <thead>
+                                          <tr>
+                                              <th>รหัสวิชา</th>
+                                              <th>วิชา</th><th>หน่วยกิต</th>
+                                              <th>เกรด</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                          <script>
+                                               
+                                          </script>
+                                      </tbody>
+                              </table>
+                          </div>
+                    </div>
+                
+        </div>
+        <div class="card">
+                <div class="card-header" id="heading10">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#term10" aria-expanded="true" aria-controls="term10">
+                      วิชาเสรี
+                    </button>
+                  </h5>
+                </div>
+            
+                <div id="term10" class="collapse" aria-labelledby="heading10" data-parent="#accordion">
+                  <div class="card-body">
+                          <table class="table table-striped">
+                                  <thead>
+                                      <tr>
+                                          <th>รหัสวิชา</th>
+                                          <th>วิชา</th><th>หน่วยกิต</th>
+                                          <th>เกรด</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <script>
+                                           
+                                      </script>
+                                  </tbody>
+                          </table>
+                      </div>
+                </div>
+            
+    </div>
+    <div class="card">
+            <div class="card-header" id="heading11">
+              <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#term11" aria-expanded="true" aria-controls="term11">
+                  วิชาไม่มีเกรด
+                </button>
+              </h5>
+            </div>
+        
+            <div id="term11" class="collapse" aria-labelledby="heading11" data-parent="#accordion">
+              <div class="card-body">
+                      <table class="table table-striped">
+                              <thead>
+                                  <tr>
+                                      <th>รหัสวิชา</th>
+                                      <th>วิชา</th><th>หน่วยกิต</th>
+                                      <th>เกรด</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <script>
+                                       add_subject("000160","BASIC COMPUTER AND INFORMATION TECHNOLOGY",0);
+                                       add_subject("935493","COMPUTER AND INFORMATION SCIENCE INTERNSHIP",0);
+                                  </script>
+                              </tbody>
+                      </table>
+                  </div>
+            </div>
+        
+</div>
+          </div>
         <button type="button" class="btn btn-success" onclick="cal()">คำนวณ</button>
     </div>
     </div>
