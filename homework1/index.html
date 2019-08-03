@@ -1,15 +1,104 @@
+<!--
+    พัฒนาโดย นาย วรรณพงษ์ ภัททิยไพบูลย์
+    603410214-3
+-->
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8">
-    <title>โปรแกรมคำนวณเกรด : ปี 3 เทอม 1</title>
+    <title>โปรแกรมคำนวณเกรด : CIS</title>
+    <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous"
+  />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./css.css">
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"
+  ></script>
+  <script src='./js/scrolls.js'></script>
+    <script>
+            function get_need_grade(id,credit){ // รหัสวิชา, หน่วยกิต
+                return '<select class="subject form-control" name="'+String(id)+'" credit="'+String(credit)+'"><option value="" selected disabled hidden>-</option><option value="4">A</option><option value="3.5">B+</option><option value="3">B</option><option value="2.5">C+</option><option value="2">C</option><option value="1.5">D+</option><option value="1">D</option><option value="0">F</option></select>'
+            }
+            function add_subject(id,name,credit){ // รหัสวิชา, ชื่อวิชา, หน่วยกิต
+                var html_sub="<tr><td>"+String(id)+"</td><td>"+String(name)+"</td><td>";
+                if(credit=="0"){
+                    html_sub += "<select><option>ผ่าน</option><option>ไม่ผ่าน</option></select>";
+                }
+                else{
+                    html_sub += get_need_grade(id,credit);
+                }
+                html_sub += "</td></tr>";
+                document.write(html_sub);
+            }
+            function cal(){ // คำนวณเกรด
+                var elements = document.getElementsByClassName("subject");
+                var grade = 0.0;
+                var credit = 0.0;
+                console.log("len :"+elements.length);
+                for(var i=0; i<elements.length; i++) {
+                    console.log(elements[i].getAttribute("credit")+" "+elements[i].value);
+                    if(elements[i].value != ""){
+                        grade += (Number(elements[i].getAttribute("credit"))*Number(elements[i].value));
+                        credit += Number(elements[i].getAttribute("credit"));
+                    }
+                }
+                grade = (grade/credit).toPrecision(3);
+                if(grade=="NaN") grade="กรุณากรอกเกรด";
+                window.alert(grade);
+            }
+    </script>
 </head>
 <body>
-    935301 : <!-- list box ให้เลือก A-F-->
-    <script>
-        function cal(){
-            // ดึงมาคำนวณ
-
-        }
+    <div class="container">
+            <div class="card border-0 shadow">
+                <div class="card-body">
+                    <h1>Total GPA Calculator<br>Computer and Information Science</h1>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>รหัสวิชา</th>
+                                <th>วิชา</th>
+                                <th>เกรด</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+        <script>
+            // ปี 1 เทอม 1
+            add_subject("000101","ENGLISH I",3);
+            add_subject("000174","Learning Skills",3);
+            add_subject("935101","INTRODUCTION TO COMPUTER AND INFORMATION SCIENCE",3);
+            add_subject("935102","INTRODUCTION TO COMPUTER PROGRAMMING",3);
+            add_subject("935103","DISCRETE MATHEMATICS AND APPLICATIONS",3);
+            add_subject("935104","ETHICS AND PROFESSIONAL ISSUES IN COMPUTER AND INFORMATION SCIENCE",3);
+            // ปี 1 เทอม 2
+            add_subject("000102","ENGLISH II",3);
+            add_subject("000147","SCIENCE OF HAPPINESS",3);
+            add_subject("935105","CALCULUS FOR COMPUTER AND INFORMATION SCIENCE",3);
+            add_subject("935106","OBJECT-ORIENTED PROGRAMMING",3);
+            add_subject("935107","PRINCIPLES OF INFORMATION SYSTEM",3);
+            add_subject("935108","DATA STRUCTURES AND ALGORITHMS",3);
+        </script>
+        </tbody>
+    </table>
+        <button type="button" class="btn btn-success" onclick="cal()">คำนวณ</button>
+    </div>
+    </div>
+    </div>
+    <script type="text/javascript">
+        scroller.init();
     </script>
 </body>
 </html>
