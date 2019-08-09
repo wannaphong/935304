@@ -7,3 +7,5 @@
 ติดตั้ง npm i bootstrap
 npm i jquery
 npm i popper.js
+
+npm i localforage - ใช้เก็บข้อมูลลงเครื่อง

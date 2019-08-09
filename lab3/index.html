@@ -6,6 +6,7 @@
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
     <script src="./node_modules/popper.js/dist/popper.min.js"></script>
+    <script src="./node_modules/localforage/dist/localforage.min.js"></script>
 </head>
 <body>
     <h1 style="text-align: center;" >Hi</h1>
@@ -21,7 +22,42 @@
                             </div>
                     </div>
             </div>
+            <div class="col-12">
+                    <div class="card">
+                            <!--<img class="card-img-top" src="" alt="ต้นตาล">-->
+                            <div class="card-body">
+                            <h5 class="card-title">ข้อความ</h5>
+                           <form>
+                               <input placeholder="ข้อควาาม" id="todo" class="form-control">
+                               <button onclick="c()" id="clickon" type="button" class="btn btn-primary">บันทึก</button>
+                           </form>
+                            </div>
+                    </div>
+            </div>
+            <div class="col-12">
+                <div id="t1">
+
+                </div>
+            </div>
             </div>
     </div>
+    <script>
+        var id=1;
+        function c(){
+            var data={
+                value:$("#todo").val()
+            };
+            localforage.setItem('tolist'+String(id),JSON.stringify(data)).then(function (value) {
+    // Do other things once the value has been saved.
+    console.log("ok");
+    console.log(value);
+}).catch(function(err) {
+    // This code runs if there were any errors
+    console.log(err);
+});
+            $("#t1").append("<p>"+String($("#todo").val())+"</p>");
+        id++;
+        }
+</script>
 </body>
 </html>
