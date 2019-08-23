@@ -7,6 +7,8 @@ function App() {
   const [todo,settodo] = useState([]);
   const onHandleSubmit = e =>{
     e.preventDefault();
+    todo.push(todoT);
+    settodoT("");
     console.log(todo);
   };
   return (
@@ -20,11 +22,13 @@ function App() {
       <div className="container mt-5">
         <form onSubmit={e => onHandleSubmit(e)}>
           <input type="text" className="form-control"
-          onChange={e => settodo([...todo,e.target.value])} />
+          onChange={e => settodoT(e.target.value)} />
           <button type="submit" className="btn btn-dark">Save</button>
         </form>
         <ul className="list-group">
-          <li className="list-group-item">First</li>
+          {todo.map((item,index) => (
+            <li key={index} className="list-group-item">{item}</li>
+          ))}
         </ul>
       </div>
     </div>
