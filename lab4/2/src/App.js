@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import H from './h'; // จาก h.js
 
 function App() {
   const [todoT,settodoT] = useState("");
@@ -13,12 +14,7 @@ function App() {
   };
   return (
     <div className="App">
-      <nav className="navbar navbar-dark bg-dark">
-      <a className="navbar-brand" href="#">
-        <img src={logo} width='30' />
-        เมนู
-      </a>
-      </nav>
+      <H />
       <div className="container mt-5">
         <form onSubmit={e => onHandleSubmit(e)}>
           <input type="text" className="form-control"
