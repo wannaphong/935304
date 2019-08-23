@@ -2,6 +2,8 @@ import React,{useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import H from './h'; // จาก h.js
+import Todolist from './todolist';
+import Form from './form'
 
 function App() {
   const [todoT,settodoT] = useState("");
@@ -16,16 +18,8 @@ function App() {
     <div className="App">
       <H />
       <div className="container mt-5">
-        <form onSubmit={e => onHandleSubmit(e)}>
-          <input type="text" className="form-control"
-          onChange={e => settodoT(e.target.value)} />
-          <button type="submit" className="btn btn-dark">Save</button>
-        </form>
-        <ul className="list-group">
-          {todo.map((item,index) => (
-            <li key={index} className="list-group-item">{item}</li>
-          ))}
-        </ul>
+        <Form onHandleSubmit={onHandleSubmit} settodoT={settodoT} />
+        <Todolist todoitem={todo}  />
       </div>
     </div>
   );
