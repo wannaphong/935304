@@ -1,35 +1,32 @@
-import React,{useState,setState,state} from 'react';
-import logo from './logo.svg';
+import React,{useState} from 'react';
 import './App.css';
-import { summarizers } from 'istanbul-lib-report';
+import Header from './Header.js';
 
 var num=0;
 function App() {
   const [todo,settodo] = useState([]);
+  const [sum, setSum] = useState( '' );
   const onHandleSubmit = e =>{
     e.preventDefault();
-    console.log(todo[todo.length-1]);
+    //console.log(todo[todo.length-1]);
     num+=Number(todo[todo.length-1]);
-    console.log(num);
-    
+    //console.log(num);
+    setSum(num);
   };
   return (
     <div>
-      <header>
-        <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
-                
-        </nav> 
-      </header>
+      <Header/>
       <div className="container-fluid">
         <h3>โปรแกรมบันทึกรายรับ</h3>
-        <p>The .navbar-brand class is used to highlight the brand/logo/project name of your page.</p>
+        <p>เรามาบันทึกรายรับกัน</p>
         <form id="add" className="form-inline" onSubmit={e => onHandleSubmit(e)}>
         <label for="receipts">Receipts : </label>
         <input onChange={e => settodo([...todo,e.target.value])}  type="number"  class="form-control" id="receipts" placeholder="Enter receipts" name="receipts"></input>
         <button type="submit" className="btn btn-dark">Save</button>
         </form>
+        <br />
       <div>
-        รายได้ทั้งหมด : <div name="sum">{String(num)} บาท</div>
+        <div name="sum">รายได้ทั้งหมด : {sum} บาท</div>
       </div>
     </div>
     </div>
