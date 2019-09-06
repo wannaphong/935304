@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import classnames from 'classnames';
 
 function Table(props) {
     return (
@@ -14,11 +15,11 @@ function Table(props) {
   </thead>
   <tbody>
       {props.list.map((item,index)=>(
-        <tr>
+        <tr key={index} className={classnames(item.type==1 ? 'table-success' : 'table-danger')}>
       <th scope="row">{index+1}</th>
       <td>{item.title}</td>
       <td>{item.amount}</td>
-      <td>{item.type}</td>
+      <td><button type="button" className="btn btn-sm btn-outline-danger" onClick={e => props.onDelete(index)}>x</button></td>
     </tr>
       ))}
     

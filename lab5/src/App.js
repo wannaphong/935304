@@ -7,6 +7,7 @@ import Table from './Table.js';
 
 function App() {
   const [transaction,settransaction]=useState({
+    id:0,
     amount:0,
     title:'',
     type:1
@@ -21,6 +22,10 @@ settransaction({
   const onSubmit = e =>{
     e.preventDefault();
     console.log("save");
+  /*  settransaction({
+      ...transaction,
+      id:list.length
+    });*/
     setlist([...list,transaction]);
     settransaction({
       ...transaction,
@@ -28,13 +33,20 @@ settransaction({
       title:''
     });
   };
+  const onDelete = reindex =>{
+    console.log(reindex);
+    list.filter((item,index)=>
+      index != reindex
+    );
+    
+  };
   return (
     <div>
       <H/>
       <div className="container">
     Hi
     <Form transaction={transaction} onHandleChange={onHandleChange} onSubmit={onSubmit} />
-    <Table list={list} />
+    <Table onDelete={onDelete} list={list} />
   </div>
   </div>
 
