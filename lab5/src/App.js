@@ -34,7 +34,7 @@ settransaction({
       <div className="container">
     Hi
     <Form transaction={transaction} onHandleChange={onHandleChange} onSubmit={onSubmit} />
-    <Table/>
+    <Table list={list} />
   </div>
   </div>
 
