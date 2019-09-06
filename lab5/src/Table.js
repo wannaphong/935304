@@ -19,7 +19,7 @@ function Table(props) {
       <th scope="row">{index+1}</th>
       <td>{item.title}</td>
       <td>{item.amount}</td>
-      <td><button type="button" className="btn btn-sm btn-outline-danger" onClick={e => props.onDelete(index)}>x</button></td>
+      <td><button type="button" className="btn btn-sm btn-outline-danger" onClick={e=>props.onDelete(item.id)}>x</button></td>
     </tr>
       ))}
     

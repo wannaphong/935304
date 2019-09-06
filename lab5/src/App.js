@@ -4,10 +4,11 @@ import React,{useState} from 'react';
 import H from './Header.js';
 import Form from './Form.js';
 import Table from './Table.js';
+import uuid from "uuid";
 
 function App() {
   const [transaction,settransaction]=useState({
-    id:0,
+    id:uuid.v4(),
     amount:0,
     title:'',
     type:1
@@ -22,22 +23,23 @@ settransaction({
   const onSubmit = e =>{
     e.preventDefault();
     console.log("save");
-  /*  settransaction({
+   /* settransaction({
       ...transaction,
-      id:list.length
+      id:
     });*/
     setlist([...list,transaction]);
     settransaction({
       ...transaction,
+      id:uuid.v4(),
       amount:0,
       title:''
     });
   };
   const onDelete = reindex =>{
     console.log(reindex);
-    list.filter((item,index)=>
-      index != reindex
-    );
+    setlist(list.filter((item,index)=>
+     item.id !== reindex
+    ));
     
   };
   return (
