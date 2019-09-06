@@ -21,13 +21,18 @@ settransaction({
     e.preventDefault();
     console.log("save");
     setlist([...list,transaction]);
+    settransaction({
+      ...transaction,
+      amount:0,
+      title:''
+    });
   };
   return (
     <div>
       <H/>
       <div className="container">
     Hi
-    <Form onHandleChange={onHandleChange} onSubmit={onSubmit} />
+    <Form transaction={transaction} onHandleChange={onHandleChange} onSubmit={onSubmit} />
   </div>
   </div>
 
