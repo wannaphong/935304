@@ -3,6 +3,7 @@ import React,{useState} from 'react';
 //import './App.css';
 import H from './Header.js';
 import Form from './Form.js';
+import Table from './Table.js';
 
 function App() {
   const [transaction,settransaction]=useState({
@@ -33,6 +34,7 @@ settransaction({
       <div className="container">
     Hi
     <Form transaction={transaction} onHandleChange={onHandleChange} onSubmit={onSubmit} />
+    <Table/>
   </div>
   </div>
 
