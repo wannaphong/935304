@@ -8,7 +8,7 @@ function App() {
   const [transaction,settransaction]=useState({
     amount:0,
     title:'',
-    type:''
+    type:0
   });
   var onHandleChange = e =>{
 settransaction({
@@ -25,7 +25,7 @@ settransaction({
       <H/>
       <div className="container">
     Hi
-    <Form onHandleChange={onHandleChange} />
+    <Form onHandleChange={onHandleChange} onSubmit={onSubmit} />
   </div>
   </div>
 

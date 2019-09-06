@@ -3,7 +3,7 @@ import React from 'react'
 function form(props) {
     return (
         <div>
-            <form>
+            <form onSubmit={e=>props.onSubmit(e)}>
                 <input type="text" name="title" className="form-control" onChange={e => props.onHandleChange(e)}/>
                 <input type="number" name="amount" className="form-control" onChange={e => props.onHandleChange(e)}/>
                 <select name="type" onChange={e => props.onHandleChange(e)}>
